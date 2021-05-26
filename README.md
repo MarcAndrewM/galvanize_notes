@@ -25,4 +25,5 @@ import scipy.optimize as optim
 
 from itertools import product
 ```
-MLE is our tool we will use to find the best hyperparameters.
+MLE is our tool we will use to find the best parameters.
+A point on the PDF is called the likelihood for the respectice x-value. On a continuous distribution, the probability of getting a specific number is 0!
