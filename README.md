@@ -25,3 +25,4 @@ import scipy.optimize as optim
 
 from itertools import product
 ```
+MLE is our tool we will use to find the best hyperparameters.
