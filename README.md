@@ -14,5 +14,14 @@ This will be where I store all of the main takeaways from each week.
 ```
 
 ## Week 2
-#### day 3 Maximum likelihood estimator
+#### Day 3 | Maximum likelihood estimator
 
+```
+# these are the imports from the module
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+import scipy.optimize as optim
+
+from itertools import product
+```
