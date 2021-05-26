@@ -14,3 +14,5 @@ This will be where I store all of the main takeaways from each week.
 ```
 
 ## Week 2
+#### day 3 Maximum likelihood estimator
+
