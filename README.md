@@ -5,7 +5,7 @@ This will be where I store all of the main takeaways from each week.
 ### PANDAS
 If you index a DataFrame with a single value or a list of values, it selects the columns.
 If you use a slice or sequence of booleans, it selects the rows. 
-
+<li> As a reminder, logical operators with arrays AND series look like</li>
 
 ## Week 2
 #### Day 3 | Maximum likelihood estimator
