@@ -2,16 +2,10 @@
 This will be where I store all of the main takeaways from each week.
 
 ## Week 1
-### topic
+### PANDAS
+If you index a DataFrame with a single value or a list of values, it selects the columns.
+If you use a slice or sequence of booleans, it selects the rows. 
 
-
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
 
 ## Week 2
 #### Day 3 | Maximum likelihood estimator
