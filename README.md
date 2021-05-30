@@ -6,6 +6,10 @@ This will be where I store all of the main takeaways from each week.
 If you index a DataFrame with a single value or a list of values, it selects the columns.
 If you use a slice or sequence of booleans, it selects the rows. 
 <li> As a reminder, logical operators with arrays AND series look like</li>
+```
+(golf_df['Humidity']>90) | (golf_df['Outlook']=="Sunny") # '|' is 'OR'
+(golf_df['Result']=="Don't Play") & golf_df['Windy'] # '&' is 'AND'
+```
 
 ## Week 2
 #### Day 3 | Maximum likelihood estimator
