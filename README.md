@@ -89,6 +89,7 @@ Only need two of the three values
 balance[ ['Asian', 'Caucasian'] ] = ethnicity_dummy[ ['Asian', 'Caucasian'] ]
 # Remove the Ethnicity column
 del balance['Ethnicity']
+# or for drop: df_main.drop(columns=[‘YEAR’], inplace=True)
 ```
 =============================    
 For inferential regression, we are concerned with LINH and multicollinearity
