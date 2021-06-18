@@ -39,9 +39,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.25)
 ```
 We train-test split first to later determine the usefulness of our model.
 The RMSE of the train set should always be lower than the RMSE for the test set except in rare cases.
-RMSE =
+RMSE = the standard deviation of the residuals (square root of the mean square error).
 
-=============================
+=============================    
 For cv, we used the following imports
 ```
 from sklearn.neighbors import KNeighborsRegressor
