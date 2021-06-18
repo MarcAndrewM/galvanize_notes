@@ -29,4 +29,16 @@ A point on the PDF is called the likelihood for the respectice x-value. On a con
 
 
 ## Week 5
-#### Day 1 | Maximum likelihood estimator
+#### Day 1 | K-Nearest Neighbors and Cross Validation
+```
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+```
+We train-test split first to later determine the usefulness of our model.
+
+#### Day 2 | Predictive Linear Regression and Inferential Regression
+#### Day 3 | Algorithmic Complexity and Regularized Regression
+#### Day 4 | Logisitic Regression and Decision Rules
+
