@@ -30,7 +30,7 @@ A point on the PDF is called the likelihood for the respectice x-value. On a con
 
 ## Week 5
 #### Day 1 | K-Nearest Neighbors and Cross Validation
-We looked at KNN to determine how we could classify points. We discussed importance of units and how many neighbors to determine the classification.
+We looked at KNN to determine how we could classify points. We discussed importance of units and selecting number of neighbors to determine the classification of a point.
 ```
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -70,9 +70,53 @@ def cross_val(X_train, y_train, k=3):
     return np.mean(error)
 ```
 
-
-
 #### Day 2 | Predictive Linear Regression and Inferential Regression
+Once we get a dataset, we look at its scatter matrix.
+```
+pd.plotting.scatter_matrix(balance, figsize=(15, 10))
+plt.show()
+```
+For categorical data, we convert the columns to 1/0s and then delete one of the cols to avoid multicollinearity.
+```
+# Married - 1, Not Married - 0
+balance['Married'] = balance['Married'].map({'Yes': 1, 'No': 0})
+```
+We can also create dummy variable for columns with labels.
+```
+#Get the Dummy variables
+ethnicity_dummy = pd.get_dummies(balance['Ethnicity'])
+Only need two of the three values
+balance[ ['Asian', 'Caucasian'] ] = ethnicity_dummy[ ['Asian', 'Caucasian'] ]
+# Remove the Ethnicity column
+del balance['Ethnicity']
+```
+=============================    
+For inferential regression, we are concerned with LINH and multicollinearity
+Predictiion is not as important as our understanding of the variables
+```
+import statsmodels.formula.api as smf
+#example
+prestige_model = smf.glm(formula="prestige ~ income + education",
+                         data=prestige)
+prestige_results = prestige_model.fit()
+prestige_results.summary()
+
+#OR
+import statsmodels.api as sm
+model = sm.OLS(y, X)
+results = model.fit()
+results.summary()
+```
+We mkake a QQ plot to see if residuals are normally distributed
+```
+# for the prestige data
+fig, ax = plt.subplots(figsize=((5, 5)))
+predictions = prestige_results.predict(prestige)
+stats.probplot(prestige['prestige'] - predictions,
+               plot=ax);
+ax.set_title("QQ Plot vs Normal dist for Prestige Residuals")
+```
+For collinearity, notice on the output, "the condition number ("Cond. No.") is huge, indicating multicollinearity. In such a case the coefficients can't really be trusted."
 #### Day 3 | Algorithmic Complexity and Regularized Regression
 #### Day 4 | Logisitic Regression and Decision Rules
 
