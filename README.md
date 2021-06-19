@@ -1,6 +1,10 @@
 # galvanize_notes
 This will be where I store all of the main takeaways from each week.
 
+HIGH LEVEL
+-Always check data for missing values. df.isnull().sum() ==> leads to an output for each parameter
+
+
 ## Week 1
 ### PANDAS
 If you index a DataFrame with a single value or a list of values, it selects the columns.
@@ -30,7 +34,7 @@ A point on the PDF is called the likelihood for the respectice x-value. On a con
 
 ## Week 5
 #### Day 1 | K-Nearest Neighbors and Cross Validation
-We looked at KNN to determine how we could classify points. We discussed importance of units and selecting number of neighbors to determine the classification of a point.
+We looked at KNN to determine how we could classify points. We discussed importance of units and selecting number of neighbors to determine the classification of a point. You want to make sure your data is not "fat and short". The # of cols should be less than the square root of n.
 ```
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -48,7 +52,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
-from sklearn.datasets import load_boston
+from sklearn.datasets import load_boston #example of loading a dataset
 from sklearn.metrics import mean_squared_error
 ```
 To fit the KNN regressor we used
@@ -93,7 +97,7 @@ del balance['Ethnicity']
 ```
 =============================    
 For inferential regression, we are concerned with LINH and multicollinearity
-Predictiion is not as important as our understanding of the variables
+Prediction is not as important as our understanding of the variables
 ```
 import statsmodels.formula.api as smf
 #example
@@ -119,5 +123,92 @@ ax.set_title("QQ Plot vs Normal dist for Prestige Residuals")
 ```
 For collinearity, notice on the output, "the condition number ("Cond. No.") is huge, indicating multicollinearity. In such a case the coefficients can't really be trusted."
 #### Day 3 | Algorithmic Complexity and Regularized Regression
-#### Day 4 | Logisitic Regression and Decision Rules
+Algorithmic complexity is important to see how efficient our code is. A formal definition is, "Algorithmic complexity is a measure of how long an algorithm would take to complete given an input of size n".
+```
+O(1)
+    General rule: most things, specifically anything that doesn't use a loop secretly
+    ==
+    <
+    %     - it might seem like mod would have to iterate through the number. That's good way to think, but unfortunatly is incorrect. As it turns out we found a faster way: a bitwise comparison.
+    +
+    -
+    /
+    *
+    .format
+    return
+    len() - python lists secretly remembers it's own length
+    x[5]
+    if x in dictionary():
+    if x in set():
 
+O(n)
+    General rule: Any thing that must look at all elements
+    min()
+    max()
+    sum()
+    mean()
+    replace()
+    join()
+    set([1,2,3...])
+    list([1,2,3...])
+    dictionary([1,2,3...])
+    Counter([1,2,3...])
+    defaultdict([1,2,3...])
+    np.array([1,2,3...])
+    for x in set:
+    for x in dictionary:
+    [x for x in list]
+    copy()
+    if x in list:
+
+O( nlog(n) )
+    General rule: sorting algorithms
+    sorted()
+```
+=============================    
+For regularization, we are trying to dampen down the coefficients of the parameter by introducing a lambda to our model. Lambda can go from 0 (regular linreg) to infinity. 
+```
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.preprocessing import StandardScaler # need to standardized for regularization
+from utils import XyScaler
+
+ridge = Ridge(alpha=0.5)
+ridge.fit(X_train, y_train)
+preds = ridge.predict(X_test)
+```
+"Remember that your predictors and response must be standardized when using ridge regression, and that this standardization must happen inside of the cross validation using only the training set!"
+
+#### Day 4 | Logisitic Regression and Decision Rules    
+Logistic regression is a classifier.
+```
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import KFold, train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+```
+example from grad school admission (yes or no)
+```
+kfold = KFold(n_splits=10)
+
+accuracies = []
+precisions = []
+recalls = []
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+for train_index, test_index in kfold.split(X_train):
+    model = LogisticRegression(solver="lbfgs")
+    model.fit(X_train.iloc[train_index], y_train.iloc[train_index])
+    y_predict = model.predict(X_train.iloc[test_index])
+    y_true = y_train.iloc[test_index]
+    accuracies.append(accuracy_score(y_true, y_predict))
+    precisions.append(precision_score(y_true, y_predict))
+    recalls.append(recall_score(y_true, y_predict))
+
+print("Accuracy:", np.average(accuracies))
+print("Precision:", np.average(precisions))
+print("Recall:", np.average(recalls))
+```
+This is a little tricky on threshold for the model. When should something be classified as a 1 vs a 0. It seems you need to ensure when you run this, you do it on your training set during crossfold validation so you are not doing it after the fact.
+
+===============================     
+For
