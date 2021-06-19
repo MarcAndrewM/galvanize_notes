@@ -211,4 +211,8 @@ print("Recall:", np.average(recalls))
 This is a little tricky on threshold for the model. When should something be classified as a 1 vs a 0. It seems you need to ensure when you run this, you do it on your training set during crossfold validation so you are not doing it after the fact.
 
 ===============================     
-For
+For "decision rules":
+*"Imbalanced datasets highlight that the misclassification costs implicit in model algorithms don't always align with our judgement of real-world misclassification costs. Sometimes it is equally important to get every instance right. Sometimes it is more important to identify some classes than others. A data scientist should always consider the costs and frequencies of different misclassifications."*
+For a certain threshold, we developed a confusion matrix. Col headers were "Actual positive", "Actual negative". Row headers were "Predicted positive", "Predicted negative".
+We looked at profit curves and how changing our classification either increased or decreased our profit.
+
