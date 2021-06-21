@@ -33,7 +33,8 @@ A point on the PDF is called the likelihood for the respectice x-value. On a con
 
 
 ## Week 5
-#### Day 1 | K-Nearest Neighbors and Cross Validation
+#### Day 1 | K-Nearest Neighbors and Cross Validation 
+
 We looked at KNN to determine how we could classify points. We discussed importance of units and selecting number of neighbors to determine the classification of a point. You want to make sure your data is not "fat and short". The # of cols should be less than the square root of n.
 ```
 from sklearn.metrics import mean_squared_error
@@ -215,4 +216,12 @@ For "decision rules":
 *"Imbalanced datasets highlight that the misclassification costs implicit in model algorithms don't always align with our judgement of real-world misclassification costs. Sometimes it is equally important to get every instance right. Sometimes it is more important to identify some classes than others. A data scientist should always consider the costs and frequencies of different misclassifications."*
 For a certain threshold, we developed a confusion matrix. Col headers were "Actual positive", "Actual negative". Row headers were "Predicted positive", "Predicted negative".
 We looked at profit curves and how changing our classification either increased or decreased our profit.
+
+```diff
++ 
+- 
+! 
+@@ @@ 
+# 
+```
 
