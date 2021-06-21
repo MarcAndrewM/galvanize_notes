@@ -217,6 +217,10 @@ For "decision rules":
 For a certain threshold, we developed a confusion matrix. Col headers were "Actual positive", "Actual negative". Row headers were "Predicted positive", "Predicted negative".
 We looked at profit curves and how changing our classification either increased or decreased our profit.
 
+
+## Week 6
+#### Day 1 | Gradient Descent and Perceptrons
+
 ```diff
 + 
 - 
