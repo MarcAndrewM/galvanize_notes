@@ -220,7 +220,22 @@ We looked at profit curves and how changing our classification either increased 
 
 ## Week 6
 #### Day 1 | Gradient Descent and Perceptrons
+Gradient descent has been a concept we have been using implicitly for the past couple weeks. For our cost function, we are trying to make it smaller. We use a "learning rate", alpha, to determine our step.
 
+Choose a starting point, a learning rate, and a threshold
+Repeatedly:
+Calculate the gradient at the current point,
+Multiply the gradient by the negative of the learning rate
+Add that to the current point to find a new point
+Repeat until within the threshold
+
+
+```
+from tensorflow import keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Activation
+from tensorflow.keras.optimizers import SGD
+```
 ```diff
 + 
 - 
