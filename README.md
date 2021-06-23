@@ -236,6 +236,14 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation
 from tensorflow.keras.optimizers import SGD
 ```
+
+#### Day 2 | Time series and Decision trees
+Use df.resample('Q-NOV') to get quarterly means that follow the seasons of the year (spring, summer, fall, winter).
+
+===============================     
+Decision trees: Goal is to achieve the best classification with the least number of decisions.
+
+
 ```diff
 + 
 - 
