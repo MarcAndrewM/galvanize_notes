@@ -241,10 +241,10 @@ from tensorflow.keras.optimizers import SGD
 Use df.resample('Q-NOV') to get quarterly means that follow the seasons of the year (spring, summer, fall, winter).
 
 ===============================     
-Decision trees: Goal is to achieve the best classification with the least number of decisions.
-Internal node: tests a predictor
-Branch: predictor value
-Lead: assigns classification
+Decision trees: Goal is to achieve the best classification with the least number of decisions.  
+Internal node: tests a predictor  
+Branch: predictor value  
+Lead: assigns classification  
 **Gini impurity**: 1 minus the summation of the proportion of each class squared.
 ex: 5 red circles/ 6 green squares ==> 1-(5/11)^2-(6/11)^2
 **Entropy**: oppositve of the summation of the probability times the log2(probability)
