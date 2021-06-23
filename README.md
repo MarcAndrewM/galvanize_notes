@@ -246,7 +246,7 @@ Internal node: tests a predictor
 Branch: predictor value  
 Lead: assigns classification  
 **Gini impurity**: 1 minus the summation of the proportion of each class squared.
-ex: 5 red circles/ 6 green squares ==> 1-(5/11)^2-(6/11)^2
+ex: 5 red circles/ 6 green squares ==> 1-(5/11)^2-(6/11)^2  
 **Entropy**: oppositve of the summation of the probability times the log2(probability)
 information gained equals parent impurity minus summation of child impurities
 Classification trees outcomes are discrete. Regression trees outcomes are continuous and use RSS instead of Gini/entropy.
