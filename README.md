@@ -242,7 +242,22 @@ Use df.resample('Q-NOV') to get quarterly means that follow the seasons of the y
 
 ===============================     
 Decision trees: Goal is to achieve the best classification with the least number of decisions.
-
+Internal node: tests a predictor
+Branch: predictor value
+Lead: assigns classification
+**Gini impurity**: 1 minus the summation of the proportion of each class squared.
+ex: 5 red circles/ 6 green squares ==> 1-(5/11)^2-(6/11)^2
+**Entropy**: oppositve of the summation of the probability times the log2(probability)
+information gained equals parent impurity minus summation of child impurities
+Classification trees outcomes are discrete. Regression trees outcomes are continuous and use RSS instead of Gini/entropy.
+```
+from sklearn import tree
+tree.DecisionTreeClassifier(class_weight=None, criterion = 'entropy', max_depth = 2, max_features=None, max_leaf_nodes=None, min_impurity_decrease=0, min_impurity_split=None,min_samples_leaf =1, min_samples_split=2,min_weight_fraction_leaf=0,presort=False, random_state=None, splitter ='best')
+```
+Three laws of recursion
+1. must have a base case
+2. must change its state and move toward the base case
+3. must call itself, recursively
 
 ```diff
 + 
