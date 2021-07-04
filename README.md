@@ -282,9 +282,13 @@ For images, such as x-rays, we don't necessarily care about color. We care more 
 Edge detection can be accomplished with gradient analysis of the pixel intensities. An operator we can use is the Sobel operator.
 
 ===============================   
-CNNS    
+CNNs    
 Create a filter that corresponds to the feature of interest, scan from left to right, register the accordance btw signal and filter at a variety of positions, and output a sequence of arrays.    
 Each time the filter moves, it computes the sum of the element-wise products.    
 When you convolve, you must determine the padding (adding zeros to prevent overhanging on the edges) and stridig (# of rows/cols to move).    
 Activation introduces non-lineraity into our neural network, making it faster. We can use RELU or max pooling.    
-We use tensors w/ CNN. Dim-1= vector, Dim-2= matrix, Dim-3= 3-tensor.
+We use tensors w/ CNN. Dim-1= vector, Dim-2= matrix, Dim-3= 3-tensor.    
+<br>
+#### Day 2 | Natural language processing (NLP) and Text classification/Naive Bayes
+
+
