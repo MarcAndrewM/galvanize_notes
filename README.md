@@ -267,3 +267,18 @@ Three laws of recursion
 # 
 ```
 
+## Week 7
+#### Day 1 | Image processing and Edge detection    
+Images are saved as a matrix of numbers. Color images are typically three equally sized matrices for red, blue, and green. Dim-1= height, dim-2= width, dim-3= color.
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import io, color, filters
+from skimage.transform import resize, rotate
+ex
+coin = io.imread('data/coin.jpg')
+```
+For images, such as x-rays, we don't necessarily care about color. We care more about intensity (histogram of pixels).    
+Edge detection can be accomplished with gradient analysis of the pixel intensities. An operator we can use is the Sobel operator.
+
+===============================   
