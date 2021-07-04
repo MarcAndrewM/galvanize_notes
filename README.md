@@ -268,7 +268,7 @@ Three laws of recursion
 ```
 
 ## Week 7
-#### Day 1 | Image processing and Edge detection    
+#### Day 1 | Image processing and Convolutional neural networks (CNN)    
 Images are saved as a matrix of numbers. Color images are typically three equally sized matrices for red, blue, and green. Dim-1= height, dim-2= width, dim-3= color.
 ```
 import numpy as np
@@ -282,3 +282,9 @@ For images, such as x-rays, we don't necessarily care about color. We care more 
 Edge detection can be accomplished with gradient analysis of the pixel intensities. An operator we can use is the Sobel operator.
 
 ===============================   
+CNNS    
+Create a filter that corresponds to the feature of interest, scan from left to right, register the accordance btw signal and filter at a variety of positions, and output a sequence of arrays.    
+Each time the filter moves, it computes the sum of the element-wise products.    
+When you convolve, you must determine the padding (adding zeros to prevent overhanging on the edges) and stridig (# of rows/cols to move).    
+Activation introduces non-lineraity into our neural network, making it faster. We can use RELU or max pooling.    
+We use tensors w/ CNN. Dim-1= vector, Dim-2= matrix, Dim-3= 3-tensor.
