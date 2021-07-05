@@ -289,6 +289,18 @@ When you convolve, you must determine the padding (adding zeros to prevent overh
 Activation introduces non-lineraity into our neural network, making it faster. We can use RELU or max pooling.    
 We use tensors w/ CNN. Dim-1= vector, Dim-2= matrix, Dim-3= 3-tensor.    
 <br>
-#### Day 2 | Natural language processing (NLP) and Text classification/Naive Bayes
+#### Day 2 | Natural language processing (NLP) and Text classification/Naive Bayes    
+NLP deals with how computers interact with language.    
+Challenges are sparsity (small # of words in any single doc), ambiguity, dialects.    
+**Document** single email, incident report. **Corpus** a collection of documents (X matrix). **Stop words** words not useful in differentiatig documents, typically removed. **Tokens** components of a doc (words). They can be stemmed or lemmatized. **N-grams** two words that commonly appear together e.g. Star Wars. **Bag of words** token count is interpreted as importance.    
+**Text Processing Workflow**
+1. lowercase
+2. strip punctuation
+3. remove stop words
+4. stem/lemmatize (decrease sparsity/increase density)
+5. convert to numeric respresentation *counts, term treq, term freq-inv doc freq*
+6. train/cluster
+7. optional: part of speech tagging    
+
 
 
