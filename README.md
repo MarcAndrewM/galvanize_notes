@@ -312,8 +312,10 @@ Think of three classes (sports, art, travel). We take the prior for each (sports
 
 Clustering- reason to believe that difference exist in the data that have not been explicityly labeled. This unseen label can be deduced.    
 "Within cluster variation" (WCV) *a cluster is good when pts in a cluster are near to each other and far away from pts outside of the cluster*    
-K-Means clustering- pick a value for k (#of clusters), initialize k randrom pts (centroids), assign each obs pt to the nearest centroid (repeat until convergence). First iteration moves all the centroids to roughly the center. Then assign pts to nearest centroid, over and over. **k-means++** after inital random centroid, the subbsequent ones are choosen to fill the gaps. (default in sklearn).    
-*Stopping criteria* 1. max_iter is how many iterations to do 2. centrodids don't change 3. centroids don't move by very much. **non-deterministic** is due to random initialization and pts might not always be assigned to same cluster.    
+K-Means clustering- pick a value for k (#of clusters), initialize k randrom pts (centroids), assign each obs pt to the nearest centroid (repeat until convergence). First iteration moves all the centroids to roughly the center. Then assign pts to nearest centroid, over and over.    
+**k-means++** after inital random centroid, the subbsequent ones are choosen to fill the gaps. (default in sklearn).    
+*Stopping criteria* 1. max_iter is how many iterations to do 2. centrodids don't change 3. centroids don't move by very much.    
+**non-deterministic** is due to random initialization and pts might not always be assigned to same cluster.    
 Elbow plot helps us evaluate # of Ks to use; ee how RSS descends and when we start to experience diminishing returns- select the elbow part of the plot    
 Shilouette score measures "goodness" of cluster. (b-a)/max(a,b) (a= low avg intra-cluster dist, b = high avg nearest cluster dist) best = 1 (a=0), worst = -1 (b=0)
 
@@ -328,8 +330,25 @@ from sklearn.metrics import silhouette_score, silhouette_samples
 =============================== 
 <br>
 When faced with a large set of correlated variables, principal components allow us to summarize this set with a smaller number of representative variables that collectively explain most of the variability in the original set.    
-Reduces dimensionality, removes collinearity. We want to capture the pincipal components that capture the most variation (90%).
+Reduces dimensionality, removes collinearity. We want to capture the pincipal components that capture the most variation (90%).    
+1. Standardize columns
+2. Create covariance (correlation if standardized) matrix
+3. Find the eigenvectors and eigenvalues of the covariance/correlation matrix
+4. The eigenvectors are the principal components
+We can look at the explained variance by the # of components to see how "deep" we should go.    
 
-
-
-
+#### Day 4 | Singular value decomposition (SVD) and Topic modeling with w/ NMF    
+SVD can be a more computational efficient way to find the same eigenvectors as PCA.    
+SVD decomposes matrix A (mxn) into U (mxm), S(mxn), and V.T (nxn). We use SVD to determine the *latent features*.    
+1. The U matrix relates rows in X to the latent topics, based on the magnitude of the values in the matrix (the larger the value, the more it loads onto that latent topic).
+2. The S matrix contains the singular values associated with the latent topics. Squared singular values are the same as eigenvalues.
+3. The V matrix relates the topics (rows) to the columns of the X matrix (the movies for example from class)
+4. By selecting the number of singular values, you are simultaneously reducing dimensionality and eliminating collinearity, and finding latent topics that can be used to reconstruct your original data.
+<br>
+=============================== 
+<br>
+NMF is another approach to compress a matrix, similar to SVD. We get a matrix w/ min loss of fidelity. We do not allow negative numbers.    
+We use alterrnating least squares to calculate the matrices.
+```
+from sklearn.decomposition import NMF
+```
