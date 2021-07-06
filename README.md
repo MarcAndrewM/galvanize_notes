@@ -315,6 +315,17 @@ K-Means clustering- pick a value for k (#of clusters), initialize k randrom pts 
 *Stopping criteria* 1. max_iter is how many iterations to do 2. centrodids don't change 3. centroids don't move by very much. **non-deterministic** is due to random initialization and pts might not always be assigned to same cluster.    
 Elbow plot helps us evaluate # of Ks to use; ee how RSS descends and when we start to experience diminishing returns- select the elbow part of the plot    
 Shilouette score measures "goodness" of cluster. (b-a)/max(a,b) (a= low avg intra-cluster dist, b = high avg nearest cluster dist) best = 1 (a=0), worst = -1 (b=0)
+```
+import itertools
+import scipy.stats as scs
+from scipy.spatial.distance import pdist, squareform
+from sklearn.cluster import KMeans, AgglomerativeClustering
+from sklearn.metrics import silhouette_score, silhouette_samples
+```    
+=============================== 
+<br>
+When faced with a large set of correlated variables, principal components allow us to summarize this set with a smaller number of representative variables that collectively explain most of the variability in the original set.    
+Reduces dimensionality, removes collinearity. We want to capture the pincipal components that capture the most variation (90%).
 
 
 
