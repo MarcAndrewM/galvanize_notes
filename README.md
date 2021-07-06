@@ -307,6 +307,15 @@ The ultimate goal of indeixing is to make a signature (vector) for each document
 Naive Bayes is helpful in classifying email (spam/not spam), sentiment analysis.    
 Has Laplace smoothing for scenario where word does not appear for a certain calss. We add 1 in this case.    
 Think of three classes (sports, art, travel). We take the prior for each (sports, art, travel) and then multiple by all o the conditional probabilities. We do not worrry about the denomiator in this case.
+<br>
+#### Day 3 | Cluster and Principal component analysis (PCA)    
+Clustering- reason to believe that difference exist in the data that have not been explicityly labeled. This unseen label can be deduced.    
+"Within cluster variation" (WCV) *a cluster is good when pts in a cluster are near to each other and far away from pts outside of the cluster*    
+K-Means clustering- pick a value for k (#of clusters), initialize k randrom pts (centroids), assign each obs pt to the nearest centroid (repeat until convergence). First iteration moves all the centroids to roughly the center. Then assign pts to nearest centroid, over and over. **k-means++** after inital random centroid, the subbsequent ones are choosen to fill the gaps. (default in sklearn).    
+*Stopping criteria* 1. max_iter is how many iterations to do 2. centrodids don't change 3. centroids don't move by very much. **non-deterministic** is due to random initialization and pts might not always be assigned to same cluster.    
+Elbow plot helps us evaluate # of Ks to use; ee how RSS descends and when we start to experience diminishing returns- select the elbow part of the plot    
+Shilouette score measures "goodness" of cluster. (b-a)/max(a,b) (a= low avg intra-cluster dist, b = high avg nearest cluster dist) best = 1 (a=0), worst = -1 (b=0)
+
 
 
 
